@@ -5,7 +5,7 @@ import Footer from '../Components/Footer/Footer';
 
 const AuthLayout = () => {
     return (
-        <div>
+        <div className='font'>
             <Outlet></Outlet>
         </div>
     );

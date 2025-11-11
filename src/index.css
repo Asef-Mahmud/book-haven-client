@@ -5,10 +5,49 @@
  }
 
 
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  /* Core brand colors */
+  --color-primary: #5C4033;    /* Deep brown — vintage book cover */
+  --color-secondary: #D4A373;  /* Soft tan — aged pages */
+  --color-accent: #FFB703;     /* Golden accent — highlights */
+  --color-neutral: #3D3D3D;    /* Dark text tone */
+  --color-base-100: #FAF3E0;   /* Cream background — paper feel */
+
+  /* Optional supporting colors (for status/alerts) */
+  --color-info: #64B5F6;
+  --color-success: #81C784;
+  --color-warning: #FFD54F;
+  --color-error: #E57373;
+
+}
+
+/* FONT */
 
  .font{
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
+}
+
+
+/* Nav Item */
+
+.nav-item{
+    font-weight: 600;
+}
+
+.nav-item:hover{
+    color: #3D3D3D;
+    text-decoration: underline;
+}
+
+
+.nav-item.active{
+    color: #5C4033;
+    font-weight:800;
+    
 }
