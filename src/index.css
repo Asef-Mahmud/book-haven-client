@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 @plugin "daisyui" {
-   themes: light --default;
+   themes: light --default, dark --prefersdark;
  }
 
+ @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @plugin "daisyui/theme" {
   name: "light";
@@ -21,7 +22,22 @@
   --color-success: #81C784;
   --color-warning: #FFD54F;
   --color-error: #E57373;
+}
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  /* Core brand colors (dark mode) */
+  --color-primary: #D4A373;   /* Muted gold — warm accent */
+  --color-secondary: #8C7A6B; /* Dusty beige — contrast for buttons */
+  --color-accent: #FFB703;    /* Bright amber — for highlights */
+  --color-neutral: #E0E0E0;   /* Light gray text */
+  --color-base-100: #1C1C1C;  /* Deep charcoal background */
+
+  /* Supporting status colors */
+  --color-info: #8ECAE6;      /* Soft sky blue */
+  --color-success: #A8DADC;   /* Muted mint */
+  --color-warning: #FFD166;   /* Warm yellow */
+  --color-error: #EF476F;     /* Subtle pinkish red */
 }
 
 /* FONT */
@@ -41,13 +57,13 @@
 }
 
 .nav-item:hover{
-    color: #3D3D3D;
-    text-decoration: underline;
+    color: hsl(var(--a));
+    text-decoration:underline;
 }
 
 
 .nav-item.active{
-    color: #5C4033;
+    color: hsl(var(--p));
     font-weight:800;
-    
+    text-decoration: underline;
 }

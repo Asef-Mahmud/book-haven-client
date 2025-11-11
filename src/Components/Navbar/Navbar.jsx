@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../../assets/bookLogo.jpg'
 
 
 const Navbar = () => {
+
+    
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
+
+
+    // Handle Theme
+    useEffect(()=>{
+        const html = document.querySelector('html')
+        html.setAttribute("data-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
+
+    const handleTheme = (checked) => {
+        setTheme(checked ? "dark" : "light")
+    }
+
 
     const links =  <>
         <NavLink to='/' className='nav-item'>Home</NavLink>
@@ -26,6 +42,14 @@ const Navbar = () => {
                             {
                                 links
                             }
+                            <div>
+                                <input 
+                                    onChange={(e)=>handleTheme(e.target.checked)}
+                                    type="checkbox"
+                                    defaultChecked={localStorage.getItem('theme') === "dark"}
+                                    className=" toggle transition-all duration-300 ease-in-out border-primary bg-base-100 text-primary checked:border-primary checked:bg-base-100 checked:text-primary"
+                                />
+                            </div>
                         </ul>
                     </div>
                     <Link to="/" className="btn btn-ghost text-[16px] md:text-xl text-primary font-mono font-extrabold"><img className='animate-pulse w-5 md:w-10 object-cover rounded-full border-2 border-yellow-950' src={logo} alt="Logo of the Company" />Book-Haven</Link>
@@ -45,7 +69,16 @@ const Navbar = () => {
                             <Link to='/auth/register' className="btn w-18 md:w-20 lg:w-25 bg-primary rounded-4xl text-white">Register</Link>
                             </>
                         )
+                        
                     }
+                    <div className='hidden md:block'>
+                        <input 
+                        onChange={(e)=>handleTheme(e.target.checked)}
+                        type="checkbox"
+                        defaultChecked={localStorage.getItem('theme') === "dark"}
+                        className=" toggle transition-all duration-300 ease-in-out border-primary bg-base-100 text-primary checked:border-primary checked:bg-base-100 checked:text-primary"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
