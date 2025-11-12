@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../../assets/bookLogo.jpg'
+import { AuthContext } from '../../Context/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 
 
 const Navbar = () => {
 
-    
+    // AuthContext
+    const {user, setUser, createUser, signInUser, signOutUser} = useContext(AuthContext)
+
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
 
 
@@ -19,6 +23,8 @@ const Navbar = () => {
     const handleTheme = (checked) => {
         setTheme(checked ? "dark" : "light")
     }
+
+
 
 
     const links =  <>
@@ -42,7 +48,7 @@ const Navbar = () => {
                             {
                                 links
                             }
-                            <div>
+                            <div className='md:hidden'>
                                 <input 
                                     onChange={(e)=>handleTheme(e.target.checked)}
                                     type="checkbox"
@@ -52,7 +58,7 @@ const Navbar = () => {
                             </div>
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost text-[16px] md:text-xl text-primary font-mono font-extrabold"><img className='animate-pulse w-5 md:w-10 object-cover rounded-full border-2 border-yellow-950' src={logo} alt="Logo of the Company" />Book-Haven</Link>
+                    <Link to="/" className="btn btn-ghost text-[18px] md:text-xl text-primary font-mono font-extrabold"><img className='animate-pulse w-7 md:w-10 object-cover rounded-full border-2 border-yellow-950' src={logo} alt="Logo of the Company" />Book-Haven</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-5">
@@ -62,15 +68,26 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-1 md:gap-3 lg:gap-4">
+                    
+                    {/* BUTTONS */}
                     {
+
+                        user ? 
+                        <>  
+                            <div className='tooltip tooltip-bottom' data-tip={`${user.displayName ? user.displayName : 'Name not updated'}`}>
+                               {user.photoURL ? <img className='w-10 h-10 p-1 rounded-full border-2 border-primary object-cover' src={user?.photoURL} alt="image of user" /> : <FaUser className='w-10 h-10 p-1 rounded-full border-2 border-primary'></FaUser>}  
+                            </div>
+                            <button className="btn w-18 md:w-20 lg:w-25 bg-primary text-white">LogOut</button>
+                        </>
+                        :
                         (
                             <>
-                            <Link to='/auth/login' className="btn w-18 md:w-20 lg:w-25 bg-primary rounded-4xl text-white">Login</Link>
-                            <Link to='/auth/register' className="btn w-18 md:w-20 lg:w-25 bg-primary rounded-4xl text-white">Register</Link>
+                            <Link to='/auth/login'className="btn w-17 md:w-20 lg:w-25 text-xs md:font-bold bg-primary rounded-4xl text-base-100">Login</Link>
+                            <Link to='/auth/register' className="btn w-17 md:w-20 lg:w-25 text-xs md:font-bold bg-primary rounded-4xl text-base-100">Register</Link>
                             </>
-                        )
-                        
+                        )  
                     }
+
                     <div className='hidden md:block'>
                         <input 
                         onChange={(e)=>handleTheme(e.target.checked)}
