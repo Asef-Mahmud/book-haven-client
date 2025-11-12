@@ -19,7 +19,7 @@ import design from '../../assets/coolbackgrounds-particles-flare.png'
 
 const Register = () => {
 
-    const {user, setUser, createUser, signOutUser, googleSignInUser, updateUser} = useContext(AuthContext)
+    const {setUser, createUser, googleSignInUser, updateUser} = useContext(AuthContext)
 
     // States
     const [passVisible, setPassVisible] = useState(false)
@@ -55,20 +55,21 @@ const Register = () => {
             // Update USER INFO
             updateUser({displayName: userName, photoURL: image}).then(()=> {
                 setUser({...user, displayName: userName, photoURL: image})
-                console.log(user)
+                // console.log(user)
             })
             .catch(error => {
             bookToast.error(error)
             setUser(user)
             })
             bookToast.success('Registration Successful!')
-            navigate('/')
+            setTimeout(()=> navigate('/'), 1000)
+            
+            // console.log(user)
         })
 
         .catch(error => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            bookToast.error(errorCode, errorMessage)
+            bookToast.error(errorMessage)
         })
 
         event.target.reset()
@@ -85,7 +86,7 @@ const Register = () => {
             bookToast.success('Google SignUp successful!')
         })
         
-        .error((error) => {
+        .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             bookToast.error(errorCode, errorMessage)
@@ -124,7 +125,7 @@ const Register = () => {
 
                         {/* Photo Url */}
                         <label className="label text-white">Photo URL</label>
-                        <input type="text" className="input outline-white border-white" name='image' placeholder="Your Photo URL" required/>
+                        <input type="text" className="input outline-white border-white" name='image' placeholder="Your Photo URL"/>
                         
                         {/* Email */}
                         <label className="label text-white">Email</label>

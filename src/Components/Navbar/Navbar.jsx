@@ -3,12 +3,14 @@ import { Link, NavLink } from 'react-router';
 import logo from '../../assets/bookLogo.jpg'
 import { AuthContext } from '../../Context/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import { Tooltip } from 'react-tooltip';
+import { bookToast } from '../../Utils/booktoast';
 
 
 const Navbar = () => {
 
     // AuthContext
-    const {user, setUser, createUser, signInUser, signOutUser} = useContext(AuthContext)
+    const {user, setUser, createUser, signInUser, signOutUser, loading} = useContext(AuthContext)
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
 
@@ -24,6 +26,19 @@ const Navbar = () => {
         setTheme(checked ? "dark" : "light")
     }
 
+
+    //Logout from Google
+    const handleLogOut = () => {
+
+            signOutUser()
+        .then(()=>{
+            bookToast.success("Logout Successful")
+        })
+        .catch((error) => {
+            bookToast.error(error)
+        })
+
+    }
 
 
 
@@ -71,19 +86,38 @@ const Navbar = () => {
                     
                     {/* BUTTONS */}
                     {
+                        loading ? 
+                         <span className="loading loading-ring loading-xs"></span>
+
+                         :
 
                         user ? 
                         <>  
-                            <div className='tooltip tooltip-bottom' data-tip={`${user.displayName ? user.displayName : 'Name not updated'}`}>
-                               {user.photoURL ? <img className='w-10 h-10 p-1 rounded-full border-2 border-primary object-cover' src={user?.photoURL} alt="image of user" /> : <FaUser className='w-10 h-10 p-1 rounded-full border-2 border-primary'></FaUser>}  
+                            <div>
+
+                               {user.photoURL ?         
+                               <img
+                                className='w-10 h-10 p-1 rounded-full border-2 border-primary object-cover'
+                                src={user.photoURL}
+                                alt="user image"
+                                data-tooltip-id="userTip"
+                                data-tooltip-content={user.displayName || "No Name"}
+                                /> 
+                                : 
+                                <div data-tooltip-id="userTip" data-tooltip-content={user.displayName || "No Name"} >
+                                    <FaUser className='w-10 h-10 p-1 rounded-full border-2 text-primary border-primary object-cover'></FaUser>
+                                </div>
+                                }  
                             </div>
-                            <button className="btn w-18 md:w-20 lg:w-25 bg-primary text-white">LogOut</button>
+                            <button onClick={handleLogOut} className="btn w-17 md:w-20 lg:w-27 text-xs md:text-sm md:font-bold bg-primary rounded-4xl text-base-100">LogOut</button>
+                            
+                            <Tooltip id="userTip" place="bottom" effect="solid" style={{color: 'black', fontWeight:'bold', backgroundColor: '#f7db94'}}/>
                         </>
                         :
                         (
                             <>
-                            <Link to='/auth/login'className="btn w-17 md:w-20 lg:w-25 text-xs md:font-bold bg-primary rounded-4xl text-base-100">Login</Link>
-                            <Link to='/auth/register' className="btn w-17 md:w-20 lg:w-25 text-xs md:font-bold bg-primary rounded-4xl text-base-100">Register</Link>
+                            <Link to='/auth/login'className="btn w-17 md:w-20 lg:w-27 text-xs md:text-sm md:font-bold bg-primary rounded-4xl text-base-100">Login</Link>
+                            <Link to='/auth/register' className="btn w-17 md:w-20 lg:w-27 text-xs md:text-sm md:font-bold bg-primary rounded-4xl text-base-100">Register</Link>
                             </>
                         )  
                     }
