@@ -28,7 +28,7 @@ const Banner = () => {
                     </p>
 
                     <div className="flex justify-center gap-5">
-                        <Link to="/all-books" className="btn btn-accent text-white px-8 hover:scale-105 duration-300 rounded-4xl">
+                        <Link to="/all-books" className="btn btn-accent text-white font-extrabold px-8 hover:scale-105 duration-300 rounded-4xl">
                             Explore Books
                         </Link>
                         <Link to="/add-book" className="btn btn-outline border-white text-white hover:bg-white hover:text-[#5C4033] px-8 duration-300 rounded-4xl">

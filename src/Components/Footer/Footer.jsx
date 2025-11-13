@@ -11,17 +11,17 @@ const Footer = () => {
 
     return (
         <div>
-            <footer className="bg-base-100 text-primary p-6 text-center border-t-3 border-t-accent py-20">
+            <footer className="bg-base-100 text-primary p-5 text-center border-t-4 border-t-accent py-20 font-bold">
                 <p className='mb-5'>© 2025 The Book Haven. All rights reserved.</p>
 
                 <ul className="flex justify-center gap-4 mt-2">
-                    <li><a href=""><FaXTwitter /></a></li>
-                    <li><a href=""><FaYoutube/></a></li>
-                    <li><a href=""><FaFacebook/></a></li>
+                    <li><a href="https://x.com/" target='_blank'><FaXTwitter className='w-5 h-5' /></a></li>
+                    <li><a href="https://www.youtube.com/" target='_blank'><FaYoutube className='w-5 h-5'/></a></li>
+                    <li><a href="https://www.facebook.com/" target='_blank'><FaFacebook className='w-5 h-5'/></a></li>
                     
                 </ul>
 
-                <ul className="flex justify-center gap-4 mt-3">
+                <ul className="flex flex-col md:flex-row justify-center gap-4 mt-3">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/all-books">All Books</Link></li>
                     {user && <li><Link to="/add-book">Add Book</Link></li>}

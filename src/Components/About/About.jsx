@@ -11,7 +11,7 @@ const About = () => {
     },[])
 
     return (
-        <div className="py-10 lg:py-20 font bg-accent-content">
+        <div className="font bg-accent-content py-10 lg:py-20">
             <div data-aos="fade-up" data-aos-easing="ease-in-out" className="max-w-11/12 mx-auto px-15 lg:px-30 text-primary border-l-accent border-l-4">
                 <div data-aos="fade-right">
                     <h1 data-aos="fade-up" className="text-4xl text-center font-bold text-accent pt-10 my-3">
@@ -20,8 +20,8 @@ const About = () => {
                     <p data-aos="fade-left" className="text-justify text-accent my-5 lg:my-10">Welcome to The Book Haven — your cozy corner of the digital world where stories come alive. Built for readers, dreamers, and collectors alike, The Book Haven is more than just a library — it's a sanctuary for every page you've ever loved. Here, you can explore timeless tales, add your own favorite books, and curate a collection that reflects your unique literary journey. In a world that moves fast, The Book Haven invites you to slow down, sip your coffee, and lose yourself between the lines — because every great story deserves a home.</p>
                 </div>
 
-                <hr data-aos="fade-up-right" className="mt-5 lg:mt-10 border text-accent"/>
-                <hr data-aos="fade-up-left" className="border text-accent"/>
+                <hr data-aos="fade-up-right" className="mt-5 lg:mt-10 hidden md:flex border text-accent"/>
+                <hr data-aos="fade-up-left" className="border hidden md:flex text-accent"/>
                 
                 <div data-aos="fade-right" className="py-5 lg:py-10">
                     <h1 data-aos="fade-up" className="text-2xl text-right font-bold text-accent pt-10 lg:pt-20 my-3">Our Mission</h1>
@@ -31,8 +31,8 @@ const About = () => {
                     </p>
                 </div>
 
-                <hr data-aos="fade-left" className="mt-5 lg:mt-10 border text-accent"/>
-                <hr data-aos="fade-right" className="border text-accent"/>
+                <hr data-aos="fade-left" className="mt-5 hidden md:flex lg:mt-10 border text-accent"/>
+                <hr data-aos="fade-right" className="border hidden md:flex text-accent"/>
                 
 
                 <div data-aos="fade-up" className="py-5 lg:py-10">
