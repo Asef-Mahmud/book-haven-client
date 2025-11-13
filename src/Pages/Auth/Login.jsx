@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthProvider';
 import { bookToast } from '../../Utils/booktoast';
-import design from '../../assets/coolbackgrounds-particles-flare.png'
+import design from '../../assets/low-poly-grid-haikei.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
@@ -93,7 +93,7 @@ const Login = () => {
                              placeholder="Your Password" 
                              required/>
 
-                            <button type='button' onClick={handleShowPassword} className='btn btn-ghost btn-xs absolute right-12 top-43 '>{passVisible ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
+                            <button type='button' onClick={handleShowPassword} className='btn btn-ghost btn-xs absolute right-12 top-51 '>{passVisible ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
                         </div>
                        
                        <div className="link-hover text-secondary hover:font-bold cursor-pointer">Forgot password?</div>

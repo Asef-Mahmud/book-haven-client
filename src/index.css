@@ -16,6 +16,7 @@
   --color-accent: #FFB703;     /* Golden accent — highlights */
   --color-neutral: #3D3D3D;    /* Dark text tone */
   --color-base-100: #FAF3E0;   /* Cream background — paper feel */
+  --color-accent-content: #5C4033;
 
   /* Optional supporting colors (for status/alerts) */
   --color-info: #64B5F6;
@@ -28,10 +29,11 @@
   name: "dark";
   /* Core brand colors (dark mode) */
   --color-primary: #D4A373;   /* Muted gold — warm accent */
-  --color-secondary: #8C7A6B; /* Dusty beige — contrast for buttons */
-  --color-accent: #FFB703;    /* Bright amber — for highlights */
+  --color-secondary: #2E2A27; /* Dusty beige — contrast for buttons */
+  --color-accent: #F4C95D;    /* Bright amber — for highlights */
   --color-neutral: #E0E0E0;   /* Light gray text */
   --color-base-100: #1C1C1C;  /* Deep charcoal background */
+  --color-accent-content: #1C1C1C;
 
   /* Supporting status colors */
   --color-info: #8ECAE6;      /* Soft sky blue */
