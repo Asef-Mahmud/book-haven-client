@@ -5,7 +5,6 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
 import { bookToast } from '../../Utils/booktoast';
-import toast, { Toaster } from 'react-hot-toast';
 
 
 const Navbar = () => {
@@ -52,7 +51,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar shadow-sm px-5 md:px-10 lg:px-15 border-b border-primary">
+            <div className="navbar shadow-sm px-5 md:px-10 lg:px-15 border-b-3 border-primary">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden px-0">
@@ -112,7 +111,7 @@ const Navbar = () => {
                             </div>
                             <button onClick={handleLogOut} className="btn w-17 md:w-20 lg:w-27 text-xs md:text-sm md:font-bold bg-primary rounded-4xl text-base-100">LogOut</button>
                             
-                            <Tooltip id="userTip" place="bottom" effect="solid" style={{color: 'black', fontWeight:'bold', backgroundColor: '#f7db94'}}/>
+                            <Tooltip id="userTip" place="left" effect="solid" style={{color: 'black', fontWeight:'bold', backgroundColor: '#f7db94'}}/>
                         </>
                         :
                         (

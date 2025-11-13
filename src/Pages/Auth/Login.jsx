@@ -4,7 +4,8 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { bookToast } from '../../Utils/booktoast';
 import design from '../../assets/low-poly-grid-haikei.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import toast, { Toaster } from 'react-hot-toast';
+
+
 
 const Login = () => {
 
