@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { bookToast } from '../../Utils/booktoast';
 import design from '../../assets/low-poly-grid-haikei.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
 
@@ -36,8 +37,7 @@ const Login = () => {
             const user = result.user
             bookToast.success('Login Successful!')
             setUser(user)
-            setTimeout(()=> {navigate(`${location.state ? location.state : '/'}`)}, 1000)
-            
+            navigate(`${location.state ? location.state : '/'}`)
         })
 
         .catch((error)=> {
@@ -54,15 +54,15 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                bookToast.success('Google SignIn successful!')
+                bookToast.success('Google Signin successful!')
+                navigate(`${location.state ? location.state : '/'}`)
             })
             
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                bookToast.error(errorCode, errorMessage)
+            .catch((error)=> {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            bookToast.error(errorCode, errorMessage)
             })
-    
         }
 
 

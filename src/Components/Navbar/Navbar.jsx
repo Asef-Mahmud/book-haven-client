@@ -5,6 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
 import { bookToast } from '../../Utils/booktoast';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Navbar = () => {
@@ -30,7 +31,7 @@ const Navbar = () => {
     //Logout from Google
     const handleLogOut = () => {
 
-            signOutUser()
+        signOutUser()
         .then(()=>{
             bookToast.success("Logout Successful")
         })

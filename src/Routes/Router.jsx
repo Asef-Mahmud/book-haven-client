@@ -8,6 +8,7 @@ import AllBooks from "../Pages/AllBooks/AllBooks";
 import AddBook from "../Pages/AddBook/AddBook";
 import MyBooks from "../Pages/MyBooks/MyBooks";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -19,20 +20,6 @@ const router = createBrowserRouter([
         {
             index: true,
             Component: Home
-        },
-        {
-            path: "/auth",
-            Component: AuthLayout,
-            children:[
-                {
-                    path:"/auth/login",
-                    Component: Login
-                },
-                {
-                    path:"/auth/register",
-                    Component: Register
-                }
-            ]
         },
         {
             path: "/all-books",
@@ -54,6 +41,24 @@ const router = createBrowserRouter([
         },
     ]
   },
+  {
+    path: '/auth',
+    element: <AuthLayout></AuthLayout>,
+    children: [
+        {
+            path:"/auth/login",
+            Component: Login
+        },
+        {
+            path:"/auth/register",
+            Component: Register
+        },
+    ]
+  },
+  {
+    path: '/*',
+    Component: ErrorPage
+  }
 ]);
 
 

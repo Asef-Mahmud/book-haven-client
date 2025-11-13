@@ -62,7 +62,7 @@ const Register = () => {
             setUser(user)
             })
             bookToast.success('Registration Successful!')
-            setTimeout(()=> navigate('/'), 1000)
+            navigate('/')
             
             // console.log(user)
         })
@@ -82,8 +82,9 @@ const Register = () => {
         .then((result) => {
             const user = result.user;
             setUser(user)
-            console.log(user)
+            // console.log(user)
             bookToast.success('Google SignUp successful!')
+            navigate('/')
         })
         
         .catch((error) => {
