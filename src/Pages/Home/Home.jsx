@@ -13,13 +13,16 @@ const Home = () => {
  
         </header>
 
+
+        {/*  */}
+
         {/* TOP GENRES */}
         <section className='max-w-[1600px] mx-auto py-10 lg:py-20'>
             <TopGenres></TopGenres>
         </section>
 
         {/* Book of the Week */}
-        <section className='max-w-[1600px] mx-auto py-10 lg:py-20'>
+        <section className='max-w-[1600px] mx-auto py-10 lg:py-15'>
             <BookOfWeek></BookOfWeek>
         </section>
 

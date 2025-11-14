@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const Banner = () => {
     return (
-        <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-linear-to-r from-[#5C4033] to-[#D4A373]">
+        <div className="relative min-h-screen md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-linear-to-r from-[#5C4033] to-[#D4A373]">
                 <img
                     src="https://plus.unsplash.com/premium_photo-1677567996070-68fa4181775a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Book Haven Background"
@@ -28,7 +28,7 @@ const Banner = () => {
                     </p>
 
                     <div className="flex justify-center gap-5">
-                        <Link to="/all-books" className="btn btn-accent text-white font-extrabold px-8 hover:scale-105 duration-300 rounded-4xl">
+                        <Link to="/all-books" className="btn btn-accent text-base-200 px-8 hover:scale-105 duration-300 rounded-4xl">
                             Explore Books
                         </Link>
                         <Link to="/add-book" className="btn btn-outline border-white text-white hover:bg-white hover:text-[#5C4033] px-8 duration-300 rounded-4xl">

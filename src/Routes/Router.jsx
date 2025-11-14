@@ -9,6 +9,7 @@ import AddBook from "../Pages/AddBook/AddBook";
 import MyBooks from "../Pages/MyBooks/MyBooks";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import BookDetails from "../Pages/BookDetails/BookDetails";
 
 
 
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/all-books",
-            Component: AllBooks
+            Component: AllBooks,
         },
         {
             path: "/add-book",
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             </PrivateRoute>
             
         },
+        {
+            path:"/book-details",
+            Component: BookDetails
+        }
     ]
   },
   {
