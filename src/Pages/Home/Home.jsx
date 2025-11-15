@@ -3,6 +3,7 @@ import About from '../../Components/About/About';
 import Banner from '../../Components/Banner/Banner';
 import TopGenres from '../../Components/TopGenres/TopGenres';
 import BookOfWeek from '../../Components/BookOfWeek/BookOfWeek';
+import LatestBooks from '../../Components/LatestBooks/LatestBooks';
 
 
 const Home = () => {
@@ -14,7 +15,10 @@ const Home = () => {
         </header>
 
 
-        {/*  */}
+        {/* Latest Books */}
+        <section className='max-w-[1600px] mx-auto py-10 lg:py-20'>
+            <LatestBooks></LatestBooks>
+        </section>
 
         {/* TOP GENRES */}
         <section className='max-w-[1600px] mx-auto py-10 lg:py-20'>

@@ -50,7 +50,7 @@ const AllBooks = () => {
                             </div>
                         </td>
                          <td className=''>
-                            <Link><button className="btn btn-ghost btn-xs">View Details</button></Link>
+                            <Link to={`/book-details/${book._id}`}><button className="btn btn-ghost btn-xs">View Details</button></Link>
                         </td>
 
                     </tr>)
