@@ -3,12 +3,12 @@ import { ProgressBar, Triangle } from 'react-loader-spinner';
 
 const Loader = () => {
     return (
-        <div className='flex justify-center items-center '>
+        <div className='flex min-h-screen items-center justify-center'>
             <Triangle
                 visible={true}
-                height="80"
-                width="80"
-                color="#5C4033"
+                height="100"
+                width="100"
+                color="var(--color-primary)"
                 ariaLabel="triangle-loading"
                 wrapperStyle={{}}
                 wrapperClass=""

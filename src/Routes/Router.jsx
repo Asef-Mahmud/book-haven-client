@@ -10,6 +10,7 @@ import MyBooks from "../Pages/MyBooks/MyBooks";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import BookDetails from "../Pages/BookDetails/BookDetails";
+import Loader from "../Loader/Loader";
 
 
 
@@ -45,7 +46,8 @@ const router = createBrowserRouter([
             loader: ({params}) => fetch(`http://localhost:3000/books/${params.id}`),
             element: <PrivateRoute>
                 <BookDetails></BookDetails>
-            </PrivateRoute>
+            </PrivateRoute>,
+            hydrateFallbackElement: <Loader></Loader>
         }
     ]
   },

@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
+import AllBooksTable from './AllBooksTable';
 
 const dataPromise = fetch('http://localhost:3000/books').then(response => response.json())
 
@@ -24,36 +25,7 @@ const AllBooks = () => {
                     </thead>
                     <tbody>
                     {
-                        books.map((book, index) => <tr>
-                        <th>{index+1}</th>
-                        <td>
-                            <div className="flex items-center gap-3 mt-3">
-                                <div className="avatar">
-                                <div className="mask h-12 w-12">
-                                    <img
-                                    src={book.coverImage}
-                                    alt="Avatar Tailwind CSS Component" 
-                                    className='object-contain'
-                                    />
-                                </div>
-                                </div>
-                                <div className="font-bold">{book.title}</div>
-                            </div>
-
-                        </td>
-                        <td>{book.author}</td>
-                        <td><span className="badge badge-xs badge-warning font-bold">{book.genre}</span></td>
-                        
-                        <td>   
-                            <div className="flex items-center mt-1">
-                            {Array.from({ length: book.rating }).map((_, i) => (<span key={i} className="text-primary text-xl">★</span>))}
-                            </div>
-                        </td>
-                         <td className=''>
-                            <Link to={`/book-details/${book._id}`}><button className="btn btn-ghost btn-xs">View Details</button></Link>
-                        </td>
-
-                    </tr>)
+                        books.map((book, index) => <AllBooksTable index={index} book={book} key={book._id}></AllBooksTable>)
                     }
                     </tbody>
                 </table>

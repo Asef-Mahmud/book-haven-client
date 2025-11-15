@@ -87,7 +87,7 @@ const Navbar = () => {
                     {/* BUTTONS */}
                     {
                         loading ? 
-                         <span className="loading loading-ring loading-xs"></span>
+                         <span className="loading loading-ring text-primary loading-xs"></span>
 
                          :
 
