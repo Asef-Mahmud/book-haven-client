@@ -24,7 +24,7 @@ const LatestBooksSlider = ({latestBooks}) => {
                     slideShadows: false,
                 }}
                 modules={[Navigation, EffectCoverflow]}
-                className="mySwiper w-full max-w-5xl mx-auto py-10"
+                className="mySwiper w-full max-w-6xl mx-auto py-10"
                 >
                 {latestBooks.map((book) => (
                     <SwiperSlide

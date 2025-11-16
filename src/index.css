@@ -15,6 +15,7 @@
   --color-secondary: #D4A373;  /* Soft tan — aged pages */
   --color-accent: #FFB703;     /* Golden accent — highlights */
   --color-neutral: #3D3D3D;    /* Dark text tone */
+  --color-neutral-100: #D4A373;
   --color-base-100: #FAF3E0;   /* Cream background — paper feel */
   --color-base-200: #FFFFFF; 
   --color-accent-content: #5C4033;
@@ -33,9 +34,10 @@
   --color-secondary: #2E2A27; /* Dusty beige — contrast for buttons */
   --color-accent: #F4C95D;    /* Bright amber — for highlights */
   --color-neutral: #E0E0E0;   /* Light gray text */
+  --color-neutral-100: #E0E0E0;   /* Light gray text */
   --color-base-100: #1C1C1C;  /* Deep charcoal background */
   --color-base-200: #000000;  /* Black background */
-  --color-accent-content: #1C1C1C;
+  --color-accent-content: #2A2A2A;
 
   /* Supporting status colors */
   --color-info: #8ECAE6;      /* Soft sky blue */

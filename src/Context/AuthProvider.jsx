@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
+    const [books, setBooks] = useState([])
 
 
     // Create User
@@ -68,7 +69,9 @@ const AuthProvider = ({children}) => {
         user, 
         setUser,
         loading, 
-        setLoading
+        setLoading, 
+        books,
+        setBooks
     }
 
 

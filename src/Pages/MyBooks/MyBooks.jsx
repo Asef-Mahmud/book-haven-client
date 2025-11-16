@@ -3,12 +3,12 @@ import { AuthContext } from '../../Context/AuthProvider';
 import Loader from '../../Loader/Loader';
 import Swal from 'sweetalert2';
 import { bookToast } from '../../Utils/booktoast';
+import { MdCancel } from "react-icons/md";
 
 
 
 const MyBooks = () => {
-    const {user, loading} = useContext(AuthContext)
-    const [books, setBooks] = useState([])
+    const {user, loading, books, setBooks} = useContext(AuthContext)
     const updateBookRef = useRef(null)
     const [selectedBook, setSelectedBook] = useState(null)
 
@@ -19,14 +19,14 @@ const MyBooks = () => {
         }
 
         if(user?.email){
-            fetch(`http://localhost:3000/books?email=${user.email}`)
+            fetch(`http://localhost:3000/books/my-books?email=${user.email}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 setBooks(data)
             })
         }
-    }, [user?.email, loading])
+    }, [user?.email, loading, setBooks])
 
 
 
@@ -168,12 +168,12 @@ const MyBooks = () => {
                                 </td>
                                 <td>{book.author}</td>
                                 <td><span className="badge badge-xs whitespace-nowrap badge-warning font-bold">{book.genre}</span></td>
-                                
                                 <td>   
                                     <div className="flex items-center mt-1">
                                     {Array.from({ length: book.rating }).map((_, i) => (<span key={i} className="text-primary text-xl">★</span>))}
                                     </div>
                                 </td>
+            
                                 <td className='flex flex-col justify-center items-start gap-2'>
                                     <button onClick={() => handleDeleteBook(book._id)} className="btn btn-ghost btn-xs rounded-4xl hover:btn-primary hover:text-base-200 mt-2 border-2">Delete</button>
                                     <button onClick={() => handleUpdateBookModal(book)} className="btn btn-ghost btn-xs rounded-4xl hover:btn-primary hover:text-base-200 border border-neutral">Update</button>
@@ -190,7 +190,16 @@ const MyBooks = () => {
 
                 <dialog ref={updateBookRef} className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
-                        <h3 className="font-bold text-3xl mb-3">Book Information Update</h3>
+                        <div className='flex justify-between items-center mb-2'>
+                            <h3 className="font-bold text-3xl">Book Information Update</h3>
+                            <div>
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn bg-base-100 p-2 hover:border-primary text-primary rounded-full text-3xl"><MdCancel /></button>
+                                </form>
+                            </div>
+                        </div>
+                        
                         {/* Form */}
                         <form onSubmit={(event) => handleUpdateBook(event, selectedBook)}>
                             <fieldset className="fieldset">
@@ -211,19 +220,12 @@ const MyBooks = () => {
                                 <input type="number" name='rating' min="1" max="5" className="input" placeholder="Rating of the Book" defaultValue={selectedBook?.rating}/>
                                 {/* Summary */}
                                 <label className="label">Summary</label>
-                                <input type="text" name='summary' className="input" placeholder="Book Summary" defaultValue={selectedBook?.summary}/>
+                                <input type='text' name='summary' className="input" placeholder="Book Summary" defaultValue={selectedBook?.summary}/>
 
 
-                                <button className="btn btn-accent text-base-200 rounded-4xl mt-4">Update Information</button>
+                                <button className="btn btn-primary text-base-200 rounded-4xl mt-4">Update Information</button>
                             </fieldset>
                         </form>
-
-                        <div className="modal-action">
-                        <form method="dialog" className='w-full'>
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn btn-primary text-base-200 rounded-4xl w-full">Go Back</button>
-                        </form>
-                        </div>
                     </div>
                 </dialog>
         </div>

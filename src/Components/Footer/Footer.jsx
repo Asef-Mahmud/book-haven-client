@@ -13,7 +13,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="bg-base-100 text-primary p-5 text-center border-t-4 border-t-primary py-20 font-bold" data-aos="fade-up">
-                <img className='mx-auto mb-4 w-10 md:w-15 object-cover rounded-full border-2 border-yellow-950 tracking-wide transition-all duration-300 hover:scale-110 hover:text-primary' src={logo} alt="Logo of the Company" />
+                <img className='mx-auto mb-4 w-10 md:w-15 object-cover rounded-full border-2 border-yellow-950 transition-all duration-300 hover:scale-110 hover:text-primary' src={logo} alt="Logo of the Company" />
                 <p className='mb-5'>© 2025 The Book Haven. All rights reserved.</p>
 
                 <ul className="flex justify-center gap-4 mt-2">
