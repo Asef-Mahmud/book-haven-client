@@ -30,7 +30,7 @@ const AddBook = () => {
         axiosInstance.post('/books', newBook)
         .then(data => {
             if(data.data.insertedId){
-                console.log(data.data.insertedId)
+
                 setBooks([...books, {...newBook}])
                 event.target.reset()
                 bookToast.success('New book added successfully')
