@@ -71,3 +71,15 @@
     font-weight:800;
     text-decoration: underline;
 }
+
+
+/* slider */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #FFB703;
+  background: hsl(var(--a)); /* soft transparent */
+  padding: 7px;
+  border-radius: 999px;
+  backdrop-filter: blur(20px);
+  
+}
