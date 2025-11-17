@@ -27,7 +27,7 @@ const AddBook = () => {
         const newBook = {title, author, coverImage, genre, rating, summary, userEmail}
 
         // Post Book
-        axiosInstance.post('/books', newBook)
+        axiosInstance.post('/add-book', newBook)
         .then(data => {
             if(data.data.insertedId){
 
@@ -137,6 +137,10 @@ const AddBook = () => {
                         className="input input-bordered w-full rounded-xl"
                         required
                         />
+                        
+                        <p className="text-xs text-neutral-500 mt-1">
+                            Please upload your book cover to <a href="https://imgbb.com/" target="_blank" rel="noopener noreferrer" className="underline text-primary">imgbb</a> and paste the URL here.
+                        </p>
                     </div>
 
                     {/* User Email */}

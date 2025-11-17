@@ -10,7 +10,7 @@ import { bookToast } from '../../Utils/booktoast';
 const Navbar = () => {
 
     // AuthContext
-    const {user, setUser, createUser, signInUser, signOutUser, loading} = useContext(AuthContext)
+    const {user, signOutUser, loading} = useContext(AuthContext)
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
 
@@ -94,13 +94,13 @@ const Navbar = () => {
                         <>  
                             <div>
 
-                               {user.photoURL ?         
+                               {user && user.photoURL ?         
                                <img
                                 className='w-10 h-10 p-1 rounded-full border-2 border-primary object-cover'
-                                src={user.photoURL}
+                                src={user?.photoURL}
                                 alt="user image"
                                 data-tooltip-id="userTip"
-                                data-tooltip-content={user.displayName || "No Name"}
+                                data-tooltip-content={user?.displayName || "No Name"}
                                 /> 
                                 : 
                                 <div data-tooltip-id="userTip" data-tooltip-content={user.displayName || "No Name"} >

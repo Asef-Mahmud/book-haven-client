@@ -19,7 +19,7 @@ const MyBooks = () => {
         }
 
         if(user?.email){
-            fetch(`http://localhost:3000/books/my-books?email=${user.email}`)
+            fetch(`http://localhost:3000/my-books?email=${user.email}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -50,7 +50,7 @@ const MyBooks = () => {
                 if (result.isConfirmed) {
                     
                     // Fetch data to delete
-                    fetch(`http://localhost:3000/books/${id}`, {
+                    fetch(`http://localhost:3000/delete-book/${id}`, {
                         method: 'DELETE'
                     })
                     .then(response => response.json())
@@ -102,7 +102,7 @@ const MyBooks = () => {
                 coverImage: photo,
             }
     
-            fetch(`http://localhost:3000/books/${selectedBook._id}`, {
+            fetch(`http://localhost:3000/update-book/${selectedBook._id}`, {
                 method: "PATCH",
                 headers: {
                 "Content-Type": "application/json"
@@ -131,7 +131,11 @@ const MyBooks = () => {
     
     return (
         <div className='max-w-[1600px] mx-auto px-3 md:px-10 py-5 md:py-10 lg:py-15'>
-                <h1 className='text-4xl font-bold text-primary text-center pb-10'>My Books</h1>
+            <div className='pb-10'>
+                <h1 className='text-4xl font-bold text-primary text-center pb-3'>Your Personal Library</h1>
+                <p className='text-primary mx-10 lg:mx-20 text-center'>"Welcome to your personal corner of The Book Haven. Here you can manage your collection, update book details, or remove stories you've added. Keep your favorite tales organized and always at your fingertips — your library, your way!"</p>
+            </div>
+                
                 {/* Info table */}
                 <div className="overflow-x-auto">
                 <table className="table table-xs">
