@@ -1,16 +1,46 @@
-# React + Vite
+# The Book Haven
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**The Book Haven** is a full-stack web application where users can explore, add, update, and delete books in a digital library. Authenticated users have their own control to manage book data. This project demonstrates integration of **Node.js + Express.js backend**, **MongoDB database**, and **Firebase authentication** into a cohesive app.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
+- Browse all books in the digital library.
+- Add, update, or delete books (authenticated users only).
+- Dynamic display of latest books.
+- Interactive book genres with images.
+- Responsive design for mobile, tablet, and desktop.
+- Smooth animations using Framer Motion and AOS.
+- Real-time notifications using React Hot Toast.
+- SweetAlert confirmation popups for delete operations.
+- User authentication with Firebase.
+- Theme toggle (Light/Dark Mode).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend:
+- **React.js**
+- **Framer Motion** – Animations
+- **AOS** – Scroll animations
+- **React Icons** – Icons
+- **React Hot Toast** – Notifications
+- **React Tooltip** – Tooltips
+- **Swiper JS** – Carousels / Book sliders
+- **Marquee** – Scrolling genres
+- **CSS / Tailwind / DaisyUI** – Styling
+
+### Backend:
+- **Node.js + Express.js** – Server
+- **MongoDB** – Database
+- **Firebase Authentication** – User login & Google Sign-In
+- **Verify Firebase Token** – Secure routes
+- **CRUD operations** – Create, Read, Update, Delete books
+
+### Deployment:
+- **Firebase Hosting** – Client
+- **Vercel** – Server
+
+---
