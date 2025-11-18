@@ -1,14 +1,14 @@
 import React from 'react';
 import * as motion from "motion/react-client"
 import { Link } from 'react-router';
-
+import library from '../../assets/Library.avif'
 
 
 const Banner = () => {
     return (
         <div className="relative min-h-screen md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-linear-to-r from-[#5C4033] to-[#D4A373]">
                 <img
-                    src="https://plus.unsplash.com/premium_photo-1677567996070-68fa4181775a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={library}
                     alt="Book Haven Background"
                     className="absolute inset-0 w-full h-full object-cover opacity-30"
                 />

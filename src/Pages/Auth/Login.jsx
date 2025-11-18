@@ -55,7 +55,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                bookToast.success('Google Signin successful!')
+                bookToast.success('Google Sign In successful!')
                 navigate(`${location.state ? location.state : '/'}`)
             })
             

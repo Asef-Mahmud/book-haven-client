@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         },
         {
             path:"/book-details/:id",
-            loader: ({params}) => fetch(`http://localhost:3000/book-details/${params.id}`),
+            loader: ({params}) => fetch(`https://book-haven-api-server-psi.vercel.app/book-details/${params.id}`),
             element: <PrivateRoute>
                 <BookDetails></BookDetails>
             </PrivateRoute>,

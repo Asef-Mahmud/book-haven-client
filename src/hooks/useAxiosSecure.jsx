@@ -5,7 +5,7 @@ import { bookToast } from '../Utils/booktoast';
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://book-haven-api-server-psi.vercel.app'
 })
 
 const useAxiosSecure = () => {

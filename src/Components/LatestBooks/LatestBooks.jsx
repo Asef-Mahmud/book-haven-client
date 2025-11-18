@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import LatestBooksSlider from './LatestBooksSlider';
 
-const booksPromise = fetch('http://localhost:3000/books/latest-books').then(response => response.json())
+const booksPromise = fetch('https://book-haven-api-server-psi.vercel.app/books/latest-books').then(response => response.json())
 
 const LatestBooks = () => {
     const latestBooks = use(booksPromise)

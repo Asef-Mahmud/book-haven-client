@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import Marquee from "react-fast-marquee";
 
 
-const dataPromise = fetch('http://localhost:3000/all-books').then(response => response.json())
+const dataPromise = fetch('https://book-haven-api-server-psi.vercel.app/all-books').then(response => response.json())
 
 const TopGenres = () => {
 
