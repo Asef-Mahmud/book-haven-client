@@ -12,7 +12,7 @@ const LatestBooks = () => {
             <h1 className="text-4xl font-bold text-center mb-5 text-primary">
             Latest Books
             </h1>
-            <p className="text-center text-neutral mb-10">
+            <p className="text-center text-primary mb-10">
                 Discover the newest adventures! Browse the latest additions to our library and find your next favorite story.
             </p>
         </div>

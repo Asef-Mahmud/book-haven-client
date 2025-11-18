@@ -16,17 +16,17 @@ const Home = () => {
 
 
         {/* Latest Books */}
-        <section className='max-w-[1600px] mx-auto py-10 lg:py-20'>
+        <section className='max-w-[1600px] mx-auto mt-10 lg:py-20'>
             <LatestBooks></LatestBooks>
         </section>
 
         {/* TOP GENRES */}
-        <section className='max-w-[1600px] mx-auto py-10 lg:py-20'>
+        <section className='max-w-[1600px] mx-auto my-15 lg:py-20'>
             <TopGenres></TopGenres>
         </section>
 
         {/* Book of the Week */}
-        <section className='max-w-[1600px] mx-auto py-10 lg:py-15'>
+        <section className='max-w-[1600px] mx-auto my-10 lg:py-15 mb-30'>
             <BookOfWeek></BookOfWeek>
         </section>
 

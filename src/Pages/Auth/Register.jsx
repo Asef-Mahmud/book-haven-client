@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router';
 import { Toaster } from 'react-hot-toast';
 import { bookToast } from '../../Utils/booktoast';
-import design from '../../assets/stacked-steps-haikei.png'
+import design from '../../assets/low-poly-grid-haikei.png'
 
 
 
@@ -104,9 +104,9 @@ const Register = () => {
 
     return (
         <div className='flex flex-col gap-3 lg:flex-row lg:gap-0 justify-center items-center py-20 px-5 md:px-10 lg:px-15 mx-auto max-w-[1600px] bg-no-repeat bg-cover' style={{ backgroundImage: `url(${design})`}}>
-                <div className="card w-full max-w-sm h-auto shrink-0 shadow-2xl border-2 border-neutral-100 py-10 p-5 bg-accent-content rounded-l-4xl">
+                <div className="card w-full max-w-sm h-auto shrink-0 shadow-2xl border-2 border-secondary py-10 p-5 bg-primary rounded-l-4xl">
                     <h2 className='font-semibold text-2xl text-center text-white mt-20'>Register Your Account</h2>
-                    <p className='p-10 border-l-4 text-secondary bg-neutral mt-10 mb-20 leading-relaxed text-justify'>Every great story begins with a single page… and every great reader begins with a single account. Register now to open the doors to your own library and keep your favorite tales at your fingertips</p>
+                    <p className='p-10 border-l-4 text-secondary bg-neutral mt-10 mb-20 leading-relaxed text-justify border-l-secondary'>Every great story begins with a single page… and every great reader begins with a single account. Register now to open the doors to your own library and keep your favorite tales at your fingertips</p>
 
                     {
                             errorQuote && <p className='text-sm p-5 mb-6 mt-0 border-t-4 font-bold border-error text-error bg-neutral italic'>"{errorQuote}"</p>
@@ -114,7 +114,7 @@ const Register = () => {
 
                 </div>
 
-            <div className="card w-full max-w-sm max-h-[700px] shrink-0 shadow-2xl border-2 rounded-r-4xl border-secondary lg:border-l-neutral-100 lg:border-t-neutral-100  lg:border-white lg:rounded-r-4xl py-10 lg:border-r-20 p-5 bg-accent-content">
+            <div className="card w-full max-w-sm max-h-[700px] shrink-0 shadow-2xl border-2 rounded-r-4xl border-secondary lg:border-l-secondary lg:border-t-secondary  lg:border-white lg:rounded-r-4xl py-10 lg:border-r-20 p-5 bg-primary">
 
                 <div className="card-body flex justify-between">
                     <form onSubmit={handleRegister}>

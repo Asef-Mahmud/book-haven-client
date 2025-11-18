@@ -4,6 +4,7 @@ import Loader from '../../Loader/Loader';
 import Swal from 'sweetalert2';
 import { bookToast } from '../../Utils/booktoast';
 import { MdCancel } from "react-icons/md";
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 
@@ -11,7 +12,9 @@ const MyBooks = () => {
     const {user, loading, books, setBooks} = useContext(AuthContext)
     const updateBookRef = useRef(null)
     const [selectedBook, setSelectedBook] = useState(null)
-
+    
+    //Axios Secure
+    const axiosInstance = useAxiosSecure()
 
     useEffect(()=>{
         if(loading){
@@ -19,14 +22,12 @@ const MyBooks = () => {
         }
 
         if(user?.email){
-            fetch(`http://localhost:3000/my-books?email=${user.email}`)
-            .then(response => response.json())
+            axiosInstance.get(`/my-books?email=${user.email}`)
             .then(data => {
-                console.log(data)
-                setBooks(data)
+                setBooks(data.data)
             })
         }
-    }, [user?.email, loading, setBooks])
+    }, [user, loading, setBooks, axiosInstance])
 
 
 
@@ -50,18 +51,18 @@ const MyBooks = () => {
                 if (result.isConfirmed) {
                     
                     // Fetch data to delete
-                    fetch(`http://localhost:3000/delete-book/${id}`, {
-                        method: 'DELETE'
-                    })
-                    .then(response => response.json())
+                    axiosInstance.delete(`/delete-book/${id}`)
                     .then(data => {
-                        if(data.deletedCount){
+                        if(data.data.deletedCount){
                             bookToast.success('The Book has been deleted successfully')
                         }
     
                         // Removal from the UI 
                             const remainingBooks = books.filter(book => (book._id !== id))
                             setBooks(remainingBooks)
+                    })
+                    .catch(error => {
+                        bookToast.error('Error: Try Again Later')
                     })
     
                 }
@@ -101,18 +102,12 @@ const MyBooks = () => {
                 summary: summary,
                 coverImage: photo,
             }
-    
-            fetch(`http://localhost:3000/update-book/${selectedBook._id}`, {
-                method: "PATCH",
-                headers: {
-                "Content-Type": "application/json"
-                },
-                body: JSON.stringify(updatedBook)
-            })
-    
-            .then(response => response.json())
+            
+            
+            // UPDATE INFO
+            axiosInstance.patch(`/update-book/${selectedBook._id}`, updatedBook)
             .then(data => {
-                if(data.modifiedCount){
+                if(data.data.modifiedCount){
                     const updatedBooks = books.map(book => book._id === selectedBook._id ? {...book, ...updatedBook} : book)
                     setBooks(updatedBooks)
     
@@ -123,7 +118,7 @@ const MyBooks = () => {
                 }
             })
             .catch(error => {
-                bookToast.error(error.message)
+                bookToast.error('Error! Try Again later!')
             })
         }
     

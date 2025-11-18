@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
-import useAxios from '../../hooks/useAxios';
-import axios from 'axios';
 import { bookToast } from '../../Utils/booktoast';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AddBook = () => {
 
     const {user, books, setBooks} = useContext(AuthContext)
-    const axiosInstance = useAxios()
+    const axiosInstance = useAxiosSecure()
 
 
     const handleAddBook = (event) => {

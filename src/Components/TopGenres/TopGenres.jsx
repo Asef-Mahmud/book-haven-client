@@ -9,8 +9,9 @@ const TopGenres = () => {
   const genres = use(dataPromise)
 
     return (
-     <div className="bg-accent-content text-accent py-20  px-10 shadow-lg">
-      <h2 className="text-4xl font-bold text-center mb-10">Top Genres</h2>
+     <div className="bg-accent-content text-accent py-10 md:py-20 px-5 md:px-10 shadow-lg">
+      <h2 className="text-4xl font-bold text-center mb-5">Genres</h2>
+      <p className='text-center mb-15'>Explore a wide variety of genres, each offering a unique adventure and story to enjoy.</p>
       <div className='border-l-4 border-r-4'>
         <Marquee gradient={false} speed={40} pauseOnHover={true}>
         {genres.map((genre, index) => (
@@ -21,7 +22,7 @@ const TopGenres = () => {
             <img
               src={genre.coverImage}
               alt={genre.genre}
-              className="w-24 h-24 rounded-full object-cover border-2 border-secondary shadow-md"
+              className="w-30 h-30 rounded-full object-cover border-2 border-secondary shadow-md"
             />
             <p className="mt-2 font-semibold">{genre.genre}</p>
           </div>

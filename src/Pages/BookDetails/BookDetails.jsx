@@ -17,13 +17,14 @@ const BookDetails = () => {
     const [comments, setComments] = useState([])
     
 
+
+
     // To load the comments in the UI
       useEffect(() => {
         axiosInstance.get(`/comments/${bookId}`)
         .then(data => {
             setComments(data.data)
         })
-        .catch(err => console.log(err));
     }, [bookId, axiosInstance]);
     
 

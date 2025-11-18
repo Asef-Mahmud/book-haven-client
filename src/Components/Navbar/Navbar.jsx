@@ -14,7 +14,6 @@ const Navbar = () => {
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
 
-
     // Handle Theme
     useEffect(()=>{
         const html = document.querySelector('html')

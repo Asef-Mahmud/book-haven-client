@@ -16,27 +16,26 @@ const AllBooks = () => {
 
     useEffect(()=>{
         setLoading(true)
-            fetch('http://localhost:3000/all-books')
-            .then(response => response.json())
+            axiosInstance.get(`/all-books`)
             .then(data => {
-                console.log(data)
-                setBooks(data)
+                setBooks(data.data)
                 setLoading(false)
             })
 
     }, [setBooks, setLoading])
 
-        if(loading){
-            <Loader></Loader>
-        }
+        if (loading) {
+            return <Loader></Loader>;
+            }
 
     const handleSort = (order) => {
         axiosInstance.get(`/all-books?order=${order}`)
         .then(data => {
+
             setBooks(data.data);
         })
         .catch(error => {
-            bookToast.error(error.message)
+            bookToast.error('Error')
         })
     }
 
